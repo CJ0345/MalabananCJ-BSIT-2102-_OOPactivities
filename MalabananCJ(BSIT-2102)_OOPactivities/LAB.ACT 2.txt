@@ -1,0 +1,66 @@
+//1
+
+import java.util.Scanner;
+
+public class GetArrayMean {
+
+    // Function to calculate the mean of the array elements
+    public static float getArrayMean(int[] array) {
+        int sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        return (float) sum / array.length; // Return mean as a float
+    }
+
+    public static void main(String[] args) {
+        // Ask for the number of integers
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter number of elements: ");
+            int n = scanner.nextInt();
+            // Initialize the array
+            int[] numbers = new int[n];
+            // Collect n integers from the user
+            for (int i = 0; i < n; i++) {
+                System.out.print("Enter number: ");
+                numbers[i] = scanner.nextInt();
+            }   // Calculate and print the mean
+            float mean = getArrayMean(numbers); // Use double for mean
+            System.out.printf("Mean of array is: %.2f", mean);
+            // Close the scanner
+        }
+    }
+}
+
+
+
+//2
+import java.util.Scanner;
+
+public class MultiplicationTable {
+
+    public static void main(String[] args) {
+        // Ask the user for the size of the multiplication table
+        try (Scanner scanner = new Scanner(System.in)) {
+            // Ask the user for the size of the multiplication table
+            System.out.print("Enter the size of the multiplication table: ");
+            int size = scanner.nextInt();
+            
+            // Create and populate the multiplication table
+            int[][] table = new int[size][size];
+            for (int i = 1; i <= size; i++) {
+                for (int j = 1; j <= size; j++) {
+                    table[i - 1][j - 1] = i * j;
+                }
+            }   // Print the multiplication table
+            System.out.println("\nMultiplication Table:");
+            for (int i = 1; i <= size; i++) {
+                for (int j = 1; j <= size; j++) {
+                    System.out.printf("%4d", table[i - 1][j - 1]); // Format the output for alignment
+                }
+                System.out.println(); // Move to the next row
+            }
+            // Close the scanner
+        }
+    }
+}
